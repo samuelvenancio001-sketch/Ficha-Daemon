@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rectangle class="fundo">
+	<scrollBox align="client">
+		<flowLayout class="tile" align="top" height="500" margins="{left=10, right=10, top=10}" autoHeight="true" horzAlign="center" lineSpacing="3" name="fraEquipamentoLayout"
+			>
+							
+
+			<script>
+				<![CDATA[
+						local function recalcularTamanhoEquipsDefesa()
+						self.flwPartEquipDefense.height = self.rclEquipsDefense.height + self.labEquipDefense.height +
+														self.layEquipDefenseBottom.height + 
+														self.flwPartEquipDefense.padding.top + self.flwPartEquipDefense.padding.bottom + 7;
+					end;					
+				]]>
+			</script>
+			
+			
+			
+			
+			<!-- Equipamentos de Defesa -->
+			 
+			<flowPart name="flwPartEquipDefense" class="tile" height="500" frameStyle="frames/panel5/frame.xml" minScaledWidth="290">	
+			
+				<label name="labEquipDefense" align="top" autoSize="true" text="@@DnD5e.tab.equipament.defend.title" fontSize="12" vertTextAlign="center" horzTextAlign="center" fontStyle="bold" onResize="recalcularTamanhoEquipsDefesa();"/>										
+															
+				<recordList name="rclEquipsDefense" align="top" field="equipamentos.defesas" templateForm="frmEquipamentoItemDefesa" 
+							autoHeight="true" minHeight="5" onResize="recalcularTamanhoEquipsDefesa();" minQt="1" hitTest="false"/>					
+							
+				<layout name="layEquipDefenseBottom" align="top" height="40">
+					<button name="btnEquipDefenseNew" align="left" onClick="self.rclEquipsDefense:append();" text="@@DnD5e.tab.equipament.btn.newItem" width="160" margins="{top=4, bottom=4}"/>								
+				</layout>															
+			</flowPart>	
+			
+			<flowLineBreak/>		
+
+			<!-- Outros Equipamentos e DINHEIRO -->
+			<flowPart class="tile" height="390" frameStyle="frames/panel4transp/frame.xml" minScaledWidth="290">	
+				<layout align="left" width="140" margins="{left=-20}">
+					<boxDinheiro align="top" text="$" field="equipamento.dinheiro.pc"/>				
+				</layout>
+
+				<layout align="left" width="400" margins="{left=10,right=10}">
+					<textEditor align="client" field="equipamento.outros" margins="{left=10, right=10}" fontSize="15"/>
+								
+					<label align="bottom" autoSize="true" text="@@DnD5e.tab.equipament.lab.carry" fontSize="12" vertTextAlign="center" horzTextAlign="center" fontStyle="bold" onResize="recalcularTamanhoEquipsDefesa();"/>
+				</layout>
+
+				<layout align="client" margins="{left=10,right=10}">
+					<textEditor align="client" field="equipamento.guardado" margins="{left=10, right=10}" fontSize="15"/>
+								
+					<label align="bottom" autoSize="true" text="@@DnD5e.tab.equipament.lab.storage" fontSize="12" vertTextAlign="center" horzTextAlign="center" fontStyle="bold" onResize="recalcularTamanhoEquipsDefesa();"/>
+				</layout>							
+			</flowPart>		
+		</flowLayout>	
+	</scrollBox>
+</rectangle>	
