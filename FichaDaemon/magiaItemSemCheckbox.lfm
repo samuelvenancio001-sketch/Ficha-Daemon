@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<form name="frmMagiaItemSemCheckbox">
-	<import file="templates.xml"/>
-	<import file="styles.xml"/>
-	
-	
-	<magiaItemContent useCheckBox="false">
-	</magiaItemContent>	
-</form>
